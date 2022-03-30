@@ -1,0 +1,24 @@
+{% extends "layout.html"%}
+
+{%block body%}
+    <h1 style="color: rgba(0, 60, 255, 0.76); font-style: italic;">Subscribe for books of writers </h1>
+    <form action="/subscription" method="post">
+        <input name="sub_name" type="text" autocomplete="off", autofocus placeholder="Name">
+        <input name="email" type="text" autocomplete="off" placeholder="Email">
+        <select name="writer_name">
+            <option name="Writer's name" selected disable> Writer </option>
+            {% for writer in writers %}
+                <option name = {{writer}}> {{writer}} </options>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Subscribe">  
+    </form>
+
+    <br>
+    <form action="/subscribers" method="get">
+        <input type="submit" value="View subscribers"> 
+    </form>
+    
+    <!--<input name="user_email" type="text" autocomplete="off" placeholder="Email address">
+        <input name="user_phone" type="number" autocomplete="off" placeholder="Phone number">-->
+{% endblock %}
